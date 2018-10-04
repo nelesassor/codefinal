@@ -25,7 +25,7 @@ SECRET_KEY = '&)bw0s9nywxz8kd82frw58i+yj$mk85b%epb4y@gzla-1#1^$l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,3 +122,5 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'studdybuddy.CustomUser'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
