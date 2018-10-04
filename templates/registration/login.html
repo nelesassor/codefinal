@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/sign-in.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav>
+            <a href="../index.html"><div class="logo"></div></a>
+            <!-- <div class="menu">
+                <ul>
+                    <li><a class="m-mathes active" href="index.html">Matches</a></li>
+                    <li><a class="m-profile" href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="logOut">
+                <a href="#">logout <i class="fas fa-sign-out-alt"></i></a>
+            </div> -->
+        </nav>
+        <section class="container">
+            <div class="row">
+                <div class="sign-in-wrap">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h1>Log in</h1>
+                        <p class="subTitle">Log in to your profile to view and find new matches.</p>
+                        <div class="textFile">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                            <div class="lineM"></div>
+                        </div>
+                        <div class="textFile">
+                            {{ form.password.label_tag }}
+                            {{ form.password }}
+                            <div class="lineM"></div>
+                        </div>
+                        <div class="textFile">
+                            <input type="submit" name="" value="Log in">
+                        </div>
+                    </form>
+                    <p class="notMember">Not a member yet? <a href="{% url 'step1'%}?next={{request.path}}">Sign up</a></p>
+
+
+                </div>
+            </div>
+        </section>
+
+        {% load static %}
+        <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>

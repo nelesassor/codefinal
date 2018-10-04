@@ -1,0 +1,84 @@
+
+/* CHECK */
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label {
+    display: inline-block;
+    position: relative;
+    border-radius: 40px;
+    padding: 12px 30px;
+    /* width: 170px; */
+    background: #eeeeee;
+    color: #444;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+input[type=radio] + label:hover {
+  background: #e4e4e4;
+}
+
+input[type=radio]:checked + label {
+  background: #3ea868;
+  color: #f0f0f0;
+  animation: btn-color 0.5s ease-in-out;
+}
+
+.label-name {
+  position: relative;
+  left: 0px;
+  /* top: 12px; */
+  -webkit-transition-property: left;
+  -webkit-transition-duration: 1s;
+  font-size: 14px;
+}
+
+input[type=radio]:checked +label span.label-name {
+  position: relative;
+  left: -15px;
+  /* top: 12px; */
+}
+
+input[type=radio]:checked + label div.checkmark {
+  display: block;
+  fill: #f0f0f0;
+}
+
+.checkmark {
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  display: none;
+  stroke-width: 4;
+  fill: #f0f0f0;
+  stroke-miterlimit: 10;
+  animation: scale 0.5s ease-in-out;
+}
+
+@keyframes scale {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.2, 1.2, 1);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes btn-color {
+  0% {
+    background: #88d3a6;
+  }
+  50% {
+    background: #5dc386;
+  }
+  100% {
+    background: #3ea868;
+  }
+}
