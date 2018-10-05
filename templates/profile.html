@@ -1,106 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Project</title>
-        {% load static %}
-        <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
-        <script type="text/javascript">
-    		$('nav li a').removeClass('active');
-    		$('.m-profile').addClass('active');
-	    </script>
-        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/check-normal.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    </head>
-    <body>
-        <nav>
-            <a href="sign-in/sign-in.html"><div class="logo"></div></a>
-            <div class="menu">
-                <ul>
-                    <li><a class="m-mathes active" href="{% url 'index'%}?next={{request.path}}">Matches</a></li>
-                    <li><a class="m-profile" href="{% url 'profile'%}?next={{request.path}}">Profile</a></li>
-                </ul>
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="title">
+    <h1>Profile</h1>
+    <h6>View and edit your profile</h6>
+  </div>
+  <div class="card">
+
+    <a class="edit b-gray" href="{% url 'edit'%}">
+      <span>Edit</span>
+      <i class="far fa-edit"></i>
+    </a>
+
+    <div class="profileTop">
+      <div class="photo"></div>
+      <div class="personalInfo">
+        <p>
+          {{request.user.username}}<br>
+          <span>#CHANGEME Software Engineering</span>
+        </p>
+      </div>
+    </div>
+    <div class="skills">
+      
+      <!-- TEACHING -->
+      <div class="skillItem">
+        <div class="skillTitle">
+          <span>Teaching:</span>
+        </div>
+        <div class="skillContent">
+          {% for skill in all_skills_iHave %}
+          <input type="checkbox" disabled id="Checkbox" name="Checkbox" checked>
+          <label for="Checkbox">
+            <span class="label-name">{{skill}}</span>
+            <div class="checkmark">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
             </div>
-            <div class="logOut">
-                {% if user.is_authenticated %}
-            <li>{{ request.user.username}}</li>
-                <a href="{% url 'edit'%}?next={{request.path}}">edit Skills <i class="fas fa-sign-out-alt"></i></a>
-                <a href="{% url 'logout'%}?next={{request.path}}">logout <i class="fas fa-sign-out-alt"></i></a>
-            {% else %}
-                <a href="{% url 'login'%}?next={{request.path}}">login <i class="fas fa-sign-out-alt"></i></a>
-            {% endif %}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- LEARNING -->
+      <div class="skillItem">
+        <div class="skillTitle">
+          <span>Learning:</span>
+        </div>
+        <div class="skillContent">
+          {% for skill in all_skills_iWant %}
+          <input type="checkbox" disabled id="Checkbox1" name="Checkbox" checked>
+          <label for="Checkbox">
+            <span class="label-name">{{skill}}</span>
+            <div class="checkmark">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
             </div>
-        </nav>
-        <section class="container">
-            <div class="row">
-                <div class="title">
-                    <h1>Profile</h1>
-                    <h6>View and edit your profile</h6>
-                </div>
-                <div class="card">
+          </label>
+          {% endfor %}
+        </div>
+      </div>
 
-                    <div class="profileTop">
-                        <div class="photo"></div>
-                        <div class="personalInfo">
-                            <p>
-                                {{request.user.username}}<br>
-                                <span>{{request.user.email}}</span>
-                                <span>+49 123 456789</span>
-                             </p>
-                        </div>
-                    </div>
-                    <div class="skills">
-                        <!-- 01 -->
-                        <div class="skillItem">
-                            <div class="skillTitle">
-                                <span>Teaching:</span>
-                            </div>
-                             <div class="skillContent">
-                                {% for skill in all_skills_iHave %}
-                                   <input type="checkbox" disabled id="Checkbox" name="Checkbox" checked>
-                                    <label for="Checkbox">
-                                    <span class="label-name">{{skill}}</span>
-                                    <div class="checkmark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
-                                    </div>
-                                </label>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <!-- 02 -->
-                        <div class="skillItem">
-                            <div class="skillTitle">
-                                <span>Learning:</span>
-                            </div>
-                              <div class="skillContent">
-                                {% for skill in all_skills_iWant %}
-                                   <input type="checkbox" disabled id="Checkbox1" name="Checkbox" checked>
-                                    <label for="Checkbox">
-                                    <span class="label-name">{{skill}}</span>
-                                    <div class="checkmark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
-                                    </div>
-                                </label>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <!-- 3 -->
-{#                        <div class="skillItem contactInfo">#}
-{##}
-{#                            <a class="b-gray" href="#"><img class="slack" src="assets/img/slack.png" alt=""><span>Message on Slack</span></a>#}
-{#                            <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>shawn.becker@code.berlin</span></a>#}
-{#                            <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>+49 123 456789</span></a>#}
-{#                        </div>#}
-                    </div>
-                </div>
+      <!-- CONTACT -->
+      <div class="skillItem contactInfo">
+        <!-- <a class="b-gray" href="#"><img class="slack" src="assets/img/slack.png" alt=""><span>Message on Slack</span></a> -->
+        <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>{{request.user.email}}</span></a>
+        <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>+49 123 456789</span></a>
+      </div>
+    </div>
+  </div>
 
-            </div>
-        </section>
-
-
-    </body>
-</html>
+</div>
+{% endblock %}

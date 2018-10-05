@@ -1,14 +1,44 @@
-<!-- templates/base.html -->
-<!DOCTYPE html>
-<html>
+{% load static %}
+
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  <title>{% block title %}Studdybuddy{% endblock %}</title>
+  <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/check-normal.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
+
 <body>
-  <main>
+  <nav>
+    <a href="sign-in/sign-in.html"><div class="logo"></div></a>
+    <div class="menu">
+      <ul>
+        <li><a class="m-mathes {% if request.path == '/app/' %}active{% endif %}" href="{% url 'index'%}">Matches</a></li>
+        <li><a class="m-profile {% if request.path == '/app/profile/' %}active{% endif %}" href="{% url 'profile'%}">Profile</a></li>
+      </ul>
+    </div>
+    <div class="logOut">
+      {% if user.is_authenticated %}
+      <li>{{ request.user.username}}</li>
+      <a href="{% url 'logout'%}">logout<i class="fas fa-sign-out-alt"></i></a>
+      {% else %}
+      <a href="{% url 'login'%}">login<i class="fas fa-sign-out-alt"></i></a>
+      {% endif %}
+    </div>
+  </nav>
+  <section class="container">
     {% block content %}
     {% endblock %}
-  </main>
+  </section>
+
+  <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
 </body>
+
 </html>
