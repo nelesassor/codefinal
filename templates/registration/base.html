@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>StuddyBuddy - Register</title>
+        <title>StuddyBuddy</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
@@ -16,12 +16,8 @@
         </nav>
         <section class="container">
             <div class="row">
-                <div class="sign-in-wrap steps">
-
-                  {% block content %}
-                  {% endblock %}
-
-                </div>
+                {% block content %}
+                {% endblock %}
             </div>
         </section>
 

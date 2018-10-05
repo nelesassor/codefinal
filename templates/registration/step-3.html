@@ -1,0 +1,46 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="sign-in-wrap steps">
+  <div class="debug">
+      {% for para in a %}
+      <li>SessionParameter {{para}}</li>
+      {% endfor %}
+  </div>
+
+  <form class="" action="" method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+          <div class="textFile password">
+              <label for="">Password did not match</label>
+              {{ form.password }}
+               <div class="lineM"></div>
+          </div>
+          <div class="textFile password">
+              <label for="">Confirm password</label>
+              {{form.confirm_password}}
+               <div class="lineM"></div>
+          </div>
+          <div class="textFile txtCenter">
+              <input type="submit" name="" value="Continue">
+          </div>
+      {% else %}
+          <div class="textFile password">
+              <label for="">Select a password for your account</label>
+              {{ form.password }}
+               <div class="lineM"></div>
+          </div>
+          <div class="textFile password">
+              <label for="">Confirm password</label>
+              {{form.confirm_password}}
+               <div class="lineM"></div>
+          </div>
+          <div class="textFile txtCenter">
+              <input type="submit" name="" value="Continue">
+          </div>
+      {% endif %}
+  </form>
+  <p class="go-back"><a href="{% url 'profile'%}?next={{request.path}}">go back</a></p>
+  {% endblock %}
+
+</div>

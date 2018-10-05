@@ -23,11 +23,11 @@ def step1(request):
                 sessionUsername = request.session['username']
             return redirect(step2)
         else:
-            return render(request, 'sign-in/step-1.html', {'form': form})
+            return render(request, 'registration/step-1.html', {'form': form})
     else:
         form = UserNameForm()
         a = request.session.keys()
-        return render(request, 'sign-in/step-1.html', {'form': form, 'a': a})
+        return render(request, 'registration/step-1.html', {'form': form, 'a': a})
 
 
 def step2(request):
@@ -42,14 +42,14 @@ def step2(request):
                 sessionEmail = request.session['email']
             return redirect('step3')
         else:
-            return render(request, 'sign-in/step-2.html', {'form': form})
+            return render(request, 'registration/step-2.html', {'form': form})
 
     else:
         form = EmailForm()
         a = request.session.keys()
         return render(
             request,
-            'sign-in/step-2.html',
+            'registration/step-2.html',
             {'form': form, 'a': a}
         )
 
@@ -66,13 +66,13 @@ def step3(request):
                 a = request.session['password']
             return redirect('step4')
         else:
-            return render(request, 'sign-in/step-3.html', {'form': form})
+            return render(request, 'registration/step-3.html', {'form': form})
     else:
         form = PasswordForm()
         a = request.session.keys()
         return render(
             request,
-            'sign-in/step-3.html',
+            'registration/step-3.html',
             {'form': form, 'a': a}
         )
 
@@ -87,13 +87,13 @@ def step4(request):
                     a = request.session['skillsiHave']
                 return redirect('step5')
             else:
-                return render(request, 'sign-in/step-4.html', {'form': form})
+                return render(request, 'registration/step-4.html', {'form': form})
         else:
             form = SimpleForm()
             a = request.session.keys()
             return render(
                 request,
-                'sign-in/step-4.html',
+                'registration/step-4.html',
                 {'form': form, 'a': a}
             )
 
@@ -109,13 +109,13 @@ def step5(request):
             createuser(request)
             return redirect('profile')
         else:
-            return render(request, 'sign-in/step-5.html', {'form': form})
+            return render(request, 'registration/step-5.html', {'form': form})
     else:
         form = SimpleForm()
         a = request.session.keys()
         return render(
             request,
-            'sign-in/step-5.html',
+            'registration/step-5.html',
             {'form': form, 'a': a}
         )
 

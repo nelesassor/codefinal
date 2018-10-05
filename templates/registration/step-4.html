@@ -1,0 +1,21 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="sign-in-wrap steps">
+  <p class="subTitle-2">
+      What skills do you already have?
+  </p>
+  <form class="" action="" method="post">
+      <div class="checkContainer">
+          {% csrf_token %}
+          {% for skill in form %}
+          {{skill}}
+          {% endfor %}
+      </div>
+      <div class="textFile txtCenter">
+           <input type="submit" name="" value="Continue">
+      </div>
+  </form>
+  <p class="go-back"><a href="{% url 'step3'%}?next={{request.path}}">go back</a></p>
+</div>
+{% endblock %}
