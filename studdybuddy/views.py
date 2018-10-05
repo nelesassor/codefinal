@@ -20,6 +20,9 @@ class userchange(generic.CreateView):
     success_url = reverse_lazy('index')
     template_name = 'changeuser.html'
 
+def landing(request):
+    return render(request, 'landing.html', context=context)
+
 @login_required
 def index(request):
     currentUser = request.user
@@ -337,4 +340,3 @@ def setMatchedId(currentUser):
     matchedUser = CustomUser.objects.get(post_id=currentUser.matchedUserID)
     matchedUser.matchedUserID = currentUser.post_id
     matchedUser.save()
-
