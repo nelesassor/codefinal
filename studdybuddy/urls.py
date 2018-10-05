@@ -3,8 +3,8 @@ from django.urls import path
 from studdybuddy import views
 
 urlpatterns = [
-    path('signup/', views.SignUp.as_view(), name='signup'),
     path('', views.index, name='index'),
+    path('signup/', views.SignUp.as_view(), name='signup'),
     path('edit/', views.edit, name='edit'),
     path('edit2/', views.edit2, name='edit2'),
     path('profile/', views.profile, name='profile'),
