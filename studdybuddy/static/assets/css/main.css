@@ -378,3 +378,9 @@ footer {
     filter: hue-rotate(300deg);
   }
 }
+
+.logoimg {
+   max-height: 40px;
+   margin-top: 10px;
+   display: none;
+}

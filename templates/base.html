@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Studdybuddy{% endblock %}</title>
+  <title>{% block title %}Studybuddy{% endblock %}</title>
   <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
   <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
@@ -16,7 +16,7 @@
 
 <body>
   <nav>
-    <a href="sign-in/sign-in.html"><div class="logo"></div></a>
+    <a href="/"><img class="logoimg" src="{% static 'assets/img/logo.png' %}" alt=""></a>
     <div class="menu">
       <ul>
         <li><a class="m-mathes {% if request.path == '/app/' %}active{% endif %}" href="{% url 'index'%}">Matches</a></li>
