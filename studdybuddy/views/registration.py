@@ -1,18 +1,19 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views import generic
-from random import randint
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from itertools import chain
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 
 from studdybuddy.models import Skill, CustomUser
-from studdybuddy.forms import CustomUserCreationForm, CustomUserChangeForm, UserNameForm, SimpleForm, EmailForm, PasswordForm
+from studdybuddy.forms import (
+    UserNameForm,
+    SimpleForm,
+    EmailForm,
+    PasswordForm
+)
+
 
 def step1(request):
     if request.method == 'POST':
-        a=0
+        a = 0
         form = UserNameForm(request.POST)
         if form.is_valid():
             sessionUsername = request.session.get('username', 'NoUsername')
@@ -31,7 +32,7 @@ def step1(request):
 
 def step2(request):
     if request.method == 'POST':
-        a=0
+        a = 0
         form = EmailForm(request.POST)
         if form.is_valid():
             sessionEmail = request.session.get('email', 'NoEmail')
@@ -46,11 +47,16 @@ def step2(request):
     else:
         form = EmailForm()
         a = request.session.keys()
-        return render(request, 'sign-in/step-2.html', {'form': form, 'a':a})
+        return render(
+            request,
+            'sign-in/step-2.html',
+            {'form': form, 'a': a}
+        )
+
 
 def step3(request):
     if request.method == 'POST':
-        a=0
+        a = 0
         form = PasswordForm(request.POST)
         if form.is_valid():
             sessionPassword = request.session.get('password', 'NoPassword')
@@ -64,7 +70,12 @@ def step3(request):
     else:
         form = PasswordForm()
         a = request.session.keys()
-        return render(request, 'sign-in/step-3.html', {'form': form, 'a':a})
+        return render(
+            request,
+            'sign-in/step-3.html',
+            {'form': form, 'a': a}
+        )
+
 
 def step4(request):
         if request.method == 'POST':
@@ -80,7 +91,11 @@ def step4(request):
         else:
             form = SimpleForm()
             a = request.session.keys()
-            return render(request, 'sign-in/step-4.html', {'form': form, 'a':a})
+            return render(
+                request,
+                'sign-in/step-4.html',
+                {'form': form, 'a': a}
+            )
 
 
 def step5(request):
@@ -98,7 +113,12 @@ def step5(request):
     else:
         form = SimpleForm()
         a = request.session.keys()
-        return render(request, 'sign-in/step-5.html', {'form': form, 'a': a})
+        return render(
+            request,
+            'sign-in/step-5.html',
+            {'form': form, 'a': a}
+        )
+
 
 def createuser(request):
     if 'username' in request.session:
@@ -126,11 +146,17 @@ def createuser(request):
     else:
         return HttpResponse("kein skillsiWant")
 
-    user = CustomUser.objects.create_user(username=sessionUsername,
-                                    email=sessionEmail,
-                                    password=sesstionPassword)
+    user = CustomUser.objects.create_user(
+        username=sessionUsername,
+        email=sessionEmail,
+        password=sesstionPassword
+    )
 
-    user = authenticate(username=sessionUsername, password=sesstionPassword)
+    user = authenticate(
+        username=sessionUsername,
+        password=sesstionPassword
+    )
+
     login(request, user)
 
     for skill in Skill.objects.all():

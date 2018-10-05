@@ -1,41 +1,42 @@
-from django.shortcuts import render, redirect
+from random import randint
 from django.urls import reverse_lazy
 from django.views import generic
-from random import randint
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from itertools import chain
-from django.contrib.auth import login, authenticate
 
 from studdybuddy.models import Skill, CustomUser
-from studdybuddy.forms import CustomUserCreationForm, CustomUserChangeForm, UserNameForm, SimpleForm, EmailForm, PasswordForm
+from studdybuddy.forms import (
+    CustomUserCreationForm,
+    CustomUserChangeForm,
+    SimpleForm,
+)
 
 from .registration import *
+
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
+
 class userchange(generic.CreateView):
     form_class = CustomUserChangeForm
     success_url = reverse_lazy('index')
     template_name = 'changeuser.html'
 
-def landing(request):
-    return render(request, 'landing.html', context=context)
 
 @login_required
 def index(request):
     currentUser = request.user
     a = 0
-    if currentUser.machted == False:
-        a=1
+    if not currentUser.machted:
+        a = 1
         i = 1
         skills = currentUser.iWant.all()
         numberOfSkills = len(skills)
         if numberOfSkills == 0:
-            text ="pick a skill you want to learn to find a match"
+            text = "pick a skill you want to learn to find a match"
             context = {
                 'numberOfSkills': numberOfSkills,
                 'text': text
@@ -91,14 +92,13 @@ def index(request):
         all_skills_iHave = matched_user.iHave.all()
         all_skills_iWant = matched_user.iWant.all()
     else:
-        a1=2
-        a=2
+        a1 = 2
+        a = 2
         matched_id = request.user.matchedUserID
         matched_user = CustomUser.objects.get(post_id=matched_id)
         matched_user.save()
         all_skills_iHave = matched_user.iHave.all()
         all_skills_iWant = matched_user.iWant.all()
-
 
     context = {
         'matched_user': matched_user,
@@ -108,7 +108,7 @@ def index(request):
         'a1': a1
     }
 
-    return render(request, 'index.html', context = context)
+    return render(request, 'index.html', context=context)
 
 
 @login_required
@@ -123,7 +123,8 @@ def profile(request):
         'all_skills_iWant': all_skills_iWant,
     }
 
-    return render(request, 'profile.html', context = context)
+    return render(request, 'profile.html', context=context)
+
 
 @login_required
 def profileEdit(request):
@@ -137,7 +138,7 @@ def profileEdit(request):
         'all_skills_iWant': all_skills_iWant,
     }
 
-    return render(request, 'profile-edit.html', context = context)
+    return render(request, 'profile-edit.html', context=context)
 
 
 @login_required
@@ -165,7 +166,7 @@ def edit(request):
         return redirect('edit2')
     else:
         form = SimpleForm()
-        return render(request, 'sign-in/step-4.html', {'form': form} )
+        return render(request, 'sign-in/step-4.html', {'form': form})
 
 
 @login_required
@@ -194,6 +195,7 @@ def edit2(request):
     else:
         form = SimpleForm()
         return render(request, 'sign-in/step-5.html', {'form': form})
+
 
 def setMatchedId(currentUser):
     matchedUser = CustomUser.objects.get(post_id=currentUser.matchedUserID)

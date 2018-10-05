@@ -1,9 +1,9 @@
 # users/forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.core.exceptions import ValidationError
 
 from studdybuddy.models import CustomUser, Skill
+
 
 class UserNameForm(forms.Form):
     username = forms.CharField(max_length=50, label='')
@@ -28,8 +28,8 @@ class EmailForm(forms.Form):
 
 
 class PasswordForm(forms.Form):
-    password=forms.CharField(widget=forms.PasswordInput())
-    confirm_password=forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput())
+    confirm_password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self):
         password = self.cleaned_data.get("password")
@@ -56,14 +56,12 @@ class SimpleForm(forms.Form):
 
 
 class CustomUserCreationForm(UserCreationForm):
-
     class Meta(UserCreationForm.Meta):
         model = CustomUser
         fields = ('username', 'email')
 
 
 class CustomUserChangeForm(UserChangeForm):
-
     class Meta:
         model = CustomUser
         fields = ('username', 'email')
