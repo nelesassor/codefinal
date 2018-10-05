@@ -4,12 +4,9 @@ from studdybuddy import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('signup/', views.SignUp.as_view(), name='signup'),
     path('edit/', views.edit, name='edit'),
     path('edit2/', views.edit2, name='edit2'),
     path('profile/', views.profile, name='profile'),
-    path('profile-edit/', views.profileEdit, name='profile-edit'),
-    path('userchange/', views.userchange.as_view(), name='userchange'),
     path('step-1/', views.step1, name='step1'),
     path('step-2/', views.step2, name='step2'),
     path('step-3/', views.step3, name='step3'),

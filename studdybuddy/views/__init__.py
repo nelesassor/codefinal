@@ -127,21 +127,6 @@ def profile(request):
 
 
 @login_required
-def profileEdit(request):
-    all_skills_iHave = request.user.iHave.all()
-    all_skills_iWant = request.user.iWant.all()
-    current_user = request.user
-
-    context = {
-        'current_user': current_user,
-        'all_skills_iHave': all_skills_iHave,
-        'all_skills_iWant': all_skills_iWant,
-    }
-
-    return render(request, 'profile-edit.html', context=context)
-
-
-@login_required
 def edit(request):
     if request.method == 'POST':
         form = SimpleForm(request.POST)
