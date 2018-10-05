@@ -1,78 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Step 3</title>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/sign-in.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    </head>
-    <body>
-        <nav>
-            <a href="../index.html"><div class="logo"></div></a>
-            <!-- <div class="menu">
-                <ul>
-                    <li><a class="m-mathes active" href="index.html">Matches</a></li>
-                    <li><a class="m-profile" href="profile.html">Profile</a></li>
-                </ul>
-            </div>
-            <div class="logOut">
-                <a href="#">logout <i class="fas fa-sign-out-alt"></i></a>
-            </div> -->
-        </nav>
-        <li>{{a}}</li>
-        <section class="container">
-            <div class="row">
-                <div class="sign-in-wrap steps">
-                    {% for para in a %}
-                    <li>SessionParameter {{para}}</li>
-                    {% endfor %}
-                    <form class="" action="" method="post">
-                        {% csrf_token %}
-                        {% if form.non_field_errors %}
-                            <div class="textFile password">
-                                <label for="">Password did not match</label>
-                                {{ form.password }}
-                                 <div class="lineM"></div>
-                            </div>
-                            <div class="textFile password">
-                                <label for="">Confirm password</label>
-                                {{form.confirm_password}}
-                                 <div class="lineM"></div>
-                            </div>
-                            <div class="textFile txtCenter">
-                                <input type="submit" name="" value="Continue">
-                            </div>
-                        {% else %}
-                            <div class="textFile password">
-                                <label for="">Select a password for your account</label>
-                                {{ form.password }}
-                                 <div class="lineM"></div>
-                            </div>
-                            <div class="textFile password">
-                                <label for="">Confirm password</label>
-                                {{form.confirm_password}}
-                                 <div class="lineM"></div>
-                            </div>
-                            <div class="textFile txtCenter">
-                                <input type="submit" name="" value="Continue">
-                            </div>
-                        {% endif %}
-                    </form>
-                    <p class="go-back"><a href="{% url 'profile'%}?next={{request.path}}">go back</a></p>
+{% extends 'sign-in/base.html' %}
 
+{% block content %}
+<div class="debug">
+    {% for para in a %}
+    <li>SessionParameter {{para}}</li>
+    {% endfor %}
+</div>
 
-
-                </div>
-            </div>
-        </section>
-
-
-        {% load static %}
-        <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
-    </body>
-</html>
+<form class="" action="" method="post">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        <div class="textFile password">
+            <label for="">Password did not match</label>
+            {{ form.password }}
+             <div class="lineM"></div>
+        </div>
+        <div class="textFile password">
+            <label for="">Confirm password</label>
+            {{form.confirm_password}}
+             <div class="lineM"></div>
+        </div>
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Continue">
+        </div>
+    {% else %}
+        <div class="textFile password">
+            <label for="">Select a password for your account</label>
+            {{ form.password }}
+             <div class="lineM"></div>
+        </div>
+        <div class="textFile password">
+            <label for="">Confirm password</label>
+            {{form.confirm_password}}
+             <div class="lineM"></div>
+        </div>
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Continue">
+        </div>
+    {% endif %}
+</form>
+<p class="go-back"><a href="{% url 'profile'%}?next={{request.path}}">go back</a></p>
+{% endblock %}
