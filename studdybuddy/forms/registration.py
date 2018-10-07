@@ -74,5 +74,5 @@ class StudyPathForm(forms.Form):
 
 
 class ContactInformationForm(forms.Form):
-    slack_handle = forms.CharField(max_length=50, label='')
-    phone_number = forms.CharField(max_length=20, label='')
+    slack_handle = forms.CharField(max_length=50, label='', required=False)
+    phone_number = forms.CharField(max_length=20, label='', required=False)
