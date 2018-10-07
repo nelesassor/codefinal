@@ -1,0 +1,24 @@
+[
+  {
+    "model": "studdybuddy.customuser",
+    "pk": "75201855-c4f4-4de9-be43-7d8d8950fbc9",
+    "fields": {
+      "password": "pbkdf2_sha256$100000$0YbbTFRBWnJ6$DD3or0DZ3bTlcsFmrJCThBkySwU/REVTfOJeD0ZtIxE=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "ben.bachem@code.berlin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2018-10-07T15:40:13.292Z",
+      "machted": false,
+      "matchedUserID": "",
+      "groups": [],
+      "user_permissions": [],
+      "iHave": [],
+      "iWant": []
+    }
+  }
+]

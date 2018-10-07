@@ -1,0 +1,30 @@
+[
+  {
+    "model": "studdybuddy.Skill",
+    "pk": 1,
+    "fields": {
+      "name": "HTML"
+    }
+  },
+  {
+    "model": "studdybuddy.Skill",
+    "pk": 2,
+    "fields": {
+      "name": "CSS"
+    }
+  },
+  {
+    "model": "studdybuddy.Skill",
+    "pk": 3,
+    "fields": {
+      "name": "JavaScript"
+    }
+  },
+  {
+    "model": "studdybuddy.Skill",
+    "pk": 4,
+    "fields": {
+      "name": "React"
+    }
+  }
+]

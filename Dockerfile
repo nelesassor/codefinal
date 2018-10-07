@@ -13,5 +13,8 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 RUN python manage.py collectstatic
 
+RUN python manage.py loaddata fixtures/admin.json
+RUN python manage.py loaddata fixtures/skills.json
+
 CMD python manage.py runserver 0.0.0.0:80
 # CMD gunicorn codeproject.wsgi -b :80
