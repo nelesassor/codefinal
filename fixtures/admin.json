@@ -1,9 +1,9 @@
 [
   {
     "model": "studdybuddy.customuser",
-    "pk": "75201855-c4f4-4de9-be43-7d8d8950fbc9",
+    "pk": "e18ab7bd-256a-4eec-8378-6668b83c1afb",
     "fields": {
-      "password": "pbkdf2_sha256$100000$0YbbTFRBWnJ6$DD3or0DZ3bTlcsFmrJCThBkySwU/REVTfOJeD0ZtIxE=",
+      "password": "pbkdf2_sha256$100000$ZBj3IQJfzoNB$+qqrPNRmDpNFREKw14kOYEvrMaWPQrytl623JNNp2QE=",
       "last_login": null,
       "is_superuser": true,
       "username": "admin",
@@ -12,9 +12,12 @@
       "email": "ben.bachem@code.berlin",
       "is_staff": true,
       "is_active": true,
-      "date_joined": "2018-10-07T15:40:13.292Z",
+      "date_joined": "2018-10-07T17:12:50.363Z",
       "machted": false,
       "matchedUserID": "",
+      "slack_handle": null,
+      "phone_number": null,
+      "study_path": "SE",
       "groups": [],
       "user_permissions": [],
       "iHave": [],

@@ -255,7 +255,7 @@ nav .logOut a:hover {
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
-    background-image: url(../../assets/img/irakli.png);
+    /* background-image: url(../../assets/img/irakli.png); */
     background-size: cover;
 }
 .card .profileTop .personalInfo {

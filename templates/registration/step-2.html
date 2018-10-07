@@ -2,28 +2,33 @@
 
 {% block content %}
 <div class="sign-in-wrap steps">
-  <div class="debug">
-      {% for para in a %}
-      <li>SessionParameter {{para}}</li>
-      {% endfor %}
-  </div>
+    <div class="errors">
+        {% if form.errors %}
+        {% endif %}
+    </div>
 
-  <form class="" action="" method="post">
-      {% csrf_token %}
-          <div class="textFile">
-              {% if form.errors %}
-                  <label for="">Email already exists</label>
-               {% else %}
-                  <label for="">What ist your Email</label>
-              {% endif %}
-               {{ form }}
-              <div class="lineM"></div>
-          </div>
-          <div class="textFile txtCenter">
-              <input type="submit" name="" value="Continue">
-          </div>
 
-  </form>
-  <p class="go-back"><a href="{% url 'step1'%}?next={{request.path}}">go back</a></p>
-  {% endblock %}
+    <form class="" action="" method="post">
+        {% csrf_token %}
+            <div class="textFile">
+                {% if form.errors %}
+                    <label for="">Email already exists</label>
+                {% else %}
+                    <label for="">What ist your Email</label>
+                {% endif %}
+
+                {{ form }}
+                <div class="lineM"></div>
+            </div>
+
+            <div class="textFile txtCenter">
+                <input type="submit" name="" value="Continue">
+            </div>
+
+    </form>
+
+    <p class="go-back"><a href="{% url 'step1'%}">go back</a></p>
+
+    
 </div>
+{% endblock %}

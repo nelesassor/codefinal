@@ -2,10 +2,9 @@
 
 {% block content %}
 <div class="sign-in-wrap steps">
-    <div class="debug">
-        {% for para in a %}
-        <li>SessionParameter {{para}}</li>
-        {% endfor %}
+    <div class="errors">
+        {% if form.errors %}
+        {% endif %}
     </div>
 
     <form class="" action="" method="post">
@@ -24,6 +23,6 @@
             </div>
 
     </form>
-    <p class="go-back"><a href="{% url 'login'%}?next={{request.path}}">go back</a></p>
+    <p class="go-back"><a href="{% url 'step0'%}">go back</a></p>
     {% endblock %}
 </div>

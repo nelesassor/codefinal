@@ -2,21 +2,29 @@
 
 {% block content %}
 <div class="sign-in-wrap steps">
-  <p class="subTitle-2">
-      ...and what would you like to learn?
-  </p>
-  <form class="" action="" method="post">
-      <div class="checkContainer">
-          {% csrf_token %}
-          {% for skill in form %}
-          {{skill}}
-          {% endfor %}
-      </div>
+    <p class="subTitle-2">
+        ...and what would you like to learn?
+    </p>
 
-      <div class="textFile txtCenter">
-          <input type="submit" name="" value="Complete">
-      </div>
-  </form>
-  <p class="go-back"><a href="{% url 'step4'%}?next={{request.path}}">go back</a></p>
+    <div class="errors">
+        {% if form.errors %}
+        {% endif %}
+    </div>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        <div class="checkContainer">
+            {% for skill in form %}
+                {{skill}}
+            {% endfor %}
+        </div>
+
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Complete">
+        </div>
+    </form>
+
+    <p class="go-back"><a href="{% url 'step4'%}">go back</a></p>
 </div>
 {% endblock %}

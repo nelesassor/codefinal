@@ -8,17 +8,17 @@
   </div>
   <div class="card">
 
-    <a class="edit b-gray" href="{% url 'edit'%}">
+    <!-- <a class="edit b-gray" href="{% url 'edit'%}">
       <span>Edit</span>
       <i class="far fa-edit"></i>
-    </a>
+    </a> -->
 
     <div class="profileTop">
       <div class="photo"></div>
       <div class="personalInfo">
         <p>
-          {{request.user.username}}<br>
-          <span>#CHANGEME Software Engineering</span>
+          {{ request.user.first_name }} {{ request.user.last_name }}<br>
+          <span>{{ request.user.get_study_path_display }}</span>
         </p>
       </div>
     </div>
@@ -33,7 +33,7 @@
           {% for skill in all_skills_iHave %}
           <input type="checkbox" disabled id="Checkbox" name="Checkbox" checked>
           <label for="Checkbox">
-            <span class="label-name">{{skill}}</span>
+            <span class="label-name">{{ skill }}</span>
             <div class="checkmark">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
             </div>
@@ -51,7 +51,7 @@
           {% for skill in all_skills_iWant %}
           <input type="checkbox" disabled id="Checkbox1" name="Checkbox" checked>
           <label for="Checkbox">
-            <span class="label-name">{{skill}}</span>
+            <span class="label-name">{{ skill }}</span>
             <div class="checkmark">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M50,91C27.393,91,9,72.607,9,50S27.393,9,50,9s41,18.393,41,41S72.607,91,50,91z M50,16   c-18.748,0-34,15.252-34,34c0,18.748,15.252,34,34,34c18.748,0,34-15.252,34-34C84,31.252,68.748,16,50,16z"/></g><path d="M66.141,39.393c-1.367-1.366-3.582-1.366-4.949,0L47.403,53.182l-6.594-6.594  c-1.367-1.366-3.583-1.366-4.95,0c-1.367,1.367-1.367,3.583,0,4.95l9.066,9.066c0.001,0.001,0.001,0.002,0.002,0.003  c0.684,0.684,1.58,1.025,2.475,1.025l0,0c0,0,0,0,0,0c0.896,0,1.792-0.342,2.475-1.025c0.002-0.002,0.003-0.004,0.004-0.005  l16.258-16.258C67.508,42.976,67.508,40.76,66.141,39.393z"/></svg>
             </div>
@@ -62,9 +62,15 @@
 
       <!-- CONTACT -->
       <div class="skillItem contactInfo">
-        <!-- <a class="b-gray" href="#"><img class="slack" src="assets/img/slack.png" alt=""><span>Message on Slack</span></a> -->
-        <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>{{request.user.email}}</span></a>
-        <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>+49 123 456789</span></a>
+        {% if slack_handle %}
+          <a class="b-gray" href="#"><img class="slack" src="/static/assets/img/slack.png" alt=""><span>{{ slack_handle }}</span></a>
+        {% endif %}
+
+        {% if phone_number %}
+          <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>{{ phone_number }}</span></a>
+        {% endif %}
+
+        <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>{{ request.user.email }}</span></a>
       </div>
     </div>
   </div>

@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/app/
+      # - ./db.sqlite3:/app/db.sqlite # Production
+      - .:/app/ # Development
     ports:
       - "8000:80"

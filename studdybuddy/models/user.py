@@ -27,5 +27,18 @@ class CustomUser(AbstractUser):
     machted = models.BooleanField(default=False)
     matchedUserID = models.CharField(max_length=200)
 
+    slack_handle = models.CharField(max_length=50, null=True, blank=True)
+    phone_number = models.CharField(max_length=20, null=True, blank=True)
+
+    study_path = models.CharField(
+        max_length=50,
+        choices=[
+            ("SE", "Software Engineering"),
+            ("ID", "Interaction Design"),
+            ("PM", "Product Management")
+        ],
+        default="SE"
+    )
+
     def __str__(self):
         return self.username

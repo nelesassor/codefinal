@@ -1,29 +1,13 @@
 from random import randint
-from django.urls import reverse_lazy
-from django.views import generic
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from studdybuddy.models import Skill, CustomUser
 from studdybuddy.forms import (
-    CustomUserCreationForm,
-    CustomUserChangeForm,
-    SimpleForm,
+    SkillForm,
 )
 
 from .registration import *
-
-
-class SignUp(generic.CreateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'signup.html'
-
-
-class userchange(generic.CreateView):
-    form_class = CustomUserChangeForm
-    success_url = reverse_lazy('index')
-    template_name = 'changeuser.html'
 
 
 @login_required
@@ -105,7 +89,10 @@ def index(request):
         'all_skills_iHave': all_skills_iHave,
         'all_skills_iWant': all_skills_iWant,
         'a': a,
-        'a1': a1
+        'a1': a1,
+        'phone_number': matched_user.phone_number,
+        'slack_handle': matched_user.slack_handle,
+        'email': matched_user.email
     }
 
     return render(request, 'index.html', context=context)
@@ -121,6 +108,8 @@ def profile(request):
         'current_user': current_user,
         'all_skills_iHave': all_skills_iHave,
         'all_skills_iWant': all_skills_iWant,
+        'phone_number': request.user.phone_number,
+        'slack_handle': request.user.slack_handle,
     }
 
     return render(request, 'profile.html', context=context)
@@ -129,9 +118,9 @@ def profile(request):
 @login_required
 def edit(request):
     if request.method == 'POST':
-        form = SimpleForm(request.POST)
+        form = SkillForm(request.POST)
         if form.is_valid():
-            a = form.cleaned_data['favorite_skills']
+            a = form.cleaned_data['selected_skills']
             for skill in Skill.objects.all():
                 if skill.name in a:
                     request.user.iHave.add(skill)
@@ -150,16 +139,16 @@ def edit(request):
 
         return redirect('edit2')
     else:
-        form = SimpleForm()
+        form = SkillForm()
         return render(request, 'sign-in/step-4.html', {'form': form})
 
 
 @login_required
 def edit2(request):
     if request.method == 'POST':
-        form = SimpleForm(request.POST)
+        form = SkillForm(request.POST)
         if form.is_valid():
-            a = form.cleaned_data['favorite_skills']
+            a = form.cleaned_data['selected_skills']
             for skill in Skill.objects.all():
                 if skill.name in a:
                     request.user.iWant.add(skill)
@@ -178,7 +167,7 @@ def edit2(request):
 
         return redirect('profile')
     else:
-        form = SimpleForm()
+        form = SkillForm()
         return render(request, 'sign-in/step-5.html', {'form': form})
 
 

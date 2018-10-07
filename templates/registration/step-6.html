@@ -3,7 +3,7 @@
 {% block content %}
 <div class="sign-in-wrap steps">
     <p class="subTitle-2">
-        What skills do you already have?
+        What is your study path?
     </p>
 
     <div class="errors">
@@ -14,17 +14,13 @@
     <form class="" action="" method="post">
         {% csrf_token %}
 
-        <div class="checkContainer">
-            {% for skill in form %}
-                {{skill}}
-            {% endfor %}
-        </div>
+        {{ form }}
 
         <div class="textFile txtCenter">
-            <input type="submit" name="" value="Continue">
+            <input type="submit" name="" value="Complete">
         </div>
     </form>
 
-    <p class="go-back"><a href="{% url 'step3'%}">go back</a></p>
+    <p class="go-back"><a href="{% url 'step5'%}">go back</a></p>
 </div>
 {% endblock %}

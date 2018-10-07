@@ -12,13 +12,14 @@
     <p>{{ text }}<br></p>
   </div>
   {% else %}
+
   <div class="card">
     <div class="profileTop">
       <div class="photo"></div>
       <div class="personalInfo">
         <p>
-          {{ matched_user.username }}<br>
-          <span>#CHANGEME Software Engineering</span>
+          {{ matched_user.first_name }} {{ matched_user.last_name }}<br>
+          <span>{{ matched_user.get_study_path_display }}</span>
         </p>
       </div>
     </div>
@@ -62,9 +63,15 @@
 
       <!-- CONTACT -->
       <div class="skillItem contactInfo">
-        <!-- <a class="b-gray" href="#"><img class="slack" src="assets/img/slack.png" alt=""><span>Message on Slack</span></a> -->
-        <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>{{ matched_user.email }}</span></a>
-        <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>+49 123 456789</span></a>
+        {% if slack_handle %}
+          <a class="b-gray" href="#"><img class="slack" src="/static/assets/img/slack.png" alt=""><span>{{ slack_handle }}</span></a>
+        {% endif %}
+
+        {% if phone_number %}
+          <a class="b-gray" href="#"><i class="fas fa-phone"></i><span>{{ phone_number }}</span></a>
+        {% endif %}
+
+        <a class="b-gray" href="#"><i class="far fa-envelope"></i><span>{{ email }}</span></a>
       </div>
     </div>
   </div>
