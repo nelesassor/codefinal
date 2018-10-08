@@ -315,6 +315,7 @@ footer {
     z-index: 999999999;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
 }
 
@@ -383,4 +384,11 @@ footer {
    max-height: 40px;
    margin-top: 10px;
    display: none;
+}
+
+.checkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

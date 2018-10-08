@@ -4,6 +4,7 @@
 <div class="sign-in-wrap steps">
     <div class="errors">
         {% if form.errors %}
+            <p>Passwords do not match.</p>
         {% endif %}
     </div>
 
@@ -18,7 +19,7 @@
 
         <div class="textFile password">
             <label for="">Confirm password</label>
-            {{form.confirm_password}}
+            {{ form.confirm_password }}
             <div class="lineM"></div>
         </div>
 
@@ -29,7 +30,5 @@
   </form>
 
   <p class="go-back"><a href="{% url 'step2'%}">go back</a></p>
-
 </div>
-
 {% endblock %}

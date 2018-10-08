@@ -128,7 +128,7 @@ def step7(request):
             user = createuser(request)
             login(request, user)
 
-            return redirect('profile')
+            return redirect('loading')
         else:
             return render(request, 'registration/step-7.html', {'form': form})
     else:

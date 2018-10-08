@@ -1,5 +1,7 @@
 # users/urls.py
 from django.urls import path
+from django.views.generic.base import TemplateView
+
 from studdybuddy import views
 
 urlpatterns = [
@@ -15,4 +17,5 @@ urlpatterns = [
     path('step-5/', views.step5, name='step5'),
     path('step-6/', views.step6, name='step6'),
     path('step-7/', views.step7, name='step7'),
+    path('loading/', TemplateView.as_view(template_name='registration/loading.html'), name='loading'),
 ]

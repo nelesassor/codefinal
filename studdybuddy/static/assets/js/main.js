@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-setTimeout(function(){
-    $('.content').fadeOut('slow');
-}, 3000);
+// setTimeout(function(){
+//     $('.content').fadeOut('slow');
+// }, 3000);
 
 // $(".desc").each (function () {
 //   if ($(this).text().length > 200)

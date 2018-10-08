@@ -1,0 +1,24 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="loader">
+        <span class="loader_letter">m</span>
+        <span class="loader_letter">a</span>
+        <span class="loader_letter">t</span>
+        <span class="loader_letter">c</span>
+        <span class="loader_letter">h</span>
+        <span class="loader_letter">i</span>
+        <span class="loader_letter">n</span>
+        <span class="loader_letter">g</span>
+    </div>
+</div>
+
+<script>
+    function redirect(){
+       window.location.href = "/app/profile/";
+    }
+
+    setTimeout(redirect, 2000);
+</script>
+{% endblock %}

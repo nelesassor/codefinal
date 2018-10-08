@@ -65,6 +65,7 @@ class SkillForm(forms.Form):
 class StudyPathForm(forms.Form):
     study_path = forms.ChoiceField(
         required=True,
+        widget=forms.RadioSelect(),
         choices=[
             ("SE", "Software Engineering"),
             ("ID", "Interaction Design"),
