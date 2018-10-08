@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>StudyBuddy</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/sign-in.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/radio.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/check-normal.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav>
+            <a href="/"><img class="logoimg" src="{% static 'assets/img/logo.png' %}" alt=""></a>
+        </nav>
+        <section class="container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </section>
+
+        {% load static %}
+        <script type="text/javascript" src="{% static 'assets/lib/jquery-2.0.3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>

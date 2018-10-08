@@ -1,0 +1,28 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="sign-in-wrap steps">
+    <div class="errors">
+        {% if form.errors %}
+            <p>Username already exists</p>
+        {% endif %}
+    </div>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        <div class="textFile">
+            <label for="">What is your Username</label>
+            {{ form }}
+            <div class="lineM"></div>
+        </div>
+
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Continue">
+        </div>
+
+    </form>
+
+    <p class="go-back"><a href="{% url 'step0'%}">go back</a></p>
+</div>
+{% endblock %}

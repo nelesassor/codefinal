@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-from django.views.generic import RedirectView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    #path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('admin/', admin.site.urls),
-    path('studdybuddy/', include('studdybuddy.urls')),
+    path('app/', include('studdybuddy.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', RedirectView.as_view(url='/studdybuddy/'))
+    path('', TemplateView.as_view(template_name='landing-page.html'), name='landing'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

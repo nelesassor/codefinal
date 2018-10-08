@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./db.sqlite3:/app/db.sqlite # Production
+      # - .:/app/ # Development
+    ports:
+      - "8000:80"

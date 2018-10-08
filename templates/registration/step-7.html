@@ -1,0 +1,33 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="sign-in-wrap steps">
+    <div class="errors">
+        {% if form.errors %}
+        {% endif %}
+    </div>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        <div class="textFile">
+            <label for="">What is your slack handle?</label>
+            {{ form.slack_handle }}
+            <div class="lineM"></div>
+        </div>
+
+        <div class="textFile">
+            <label for="">What is your phone number?</label>
+            {{ form.phone_number }}
+            <div class="lineM"></div>
+        </div>
+
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Continue">
+        </div>
+    </form>
+
+    <p class="go-back"><a href="{% url 'step6'%}">go back</a></p>
+
+</div>
+{% endblock %}

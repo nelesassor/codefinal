@@ -1,0 +1,233 @@
+[
+  {
+    "model": "studdybuddy.skill",
+    "pk": 1,
+    "fields": {
+      "name": "HTML"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 2,
+    "fields": {
+      "name": "CSS"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 3,
+    "fields": {
+      "name": "JavaScript"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 4,
+    "fields": {
+      "name": "Python"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 5,
+    "fields": {
+      "name": "Go"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 6,
+    "fields": {
+      "name": "C"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 7,
+    "fields": {
+      "name": "C#"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 8,
+    "fields": {
+      "name": "C++"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 9,
+    "fields": {
+      "name": "Swift"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 10,
+    "fields": {
+      "name": "Ruby"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 11,
+    "fields": {
+      "name": "Haskell"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 12,
+    "fields": {
+      "name": "Skala"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 13,
+    "fields": {
+      "name": "Bash"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 14,
+    "fields": {
+      "name": "React"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 15,
+    "fields": {
+      "name": "Vue"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 16,
+    "fields": {
+      "name": "Angular"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 17,
+    "fields": {
+      "name": "Redux"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 18,
+    "fields": {
+      "name": "Docker"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 19,
+    "fields": {
+      "name": "Kubernetes"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 20,
+    "fields": {
+      "name": "Kafka"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 21,
+    "fields": {
+      "name": "SQL"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 22,
+    "fields": {
+      "name": "Git"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 23,
+    "fields": {
+      "name": "Tensorflow"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 24,
+    "fields": {
+      "name": "Torch"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 25,
+    "fields": {
+      "name": "SCRUM"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 26,
+    "fields": {
+      "name": "Sketch"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 27,
+    "fields": {
+      "name": "Figma"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 28,
+    "fields": {
+      "name": "Framer"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 29,
+    "fields": {
+      "name": "InVision Studio"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 30,
+    "fields": {
+      "name": "Adobe Illustrator"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 31,
+    "fields": {
+      "name": "Adobe Photoshop"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 32,
+    "fields": {
+      "name": "Adobe XD"
+    }
+  },
+  {
+    "model": "studdybuddy.skill",
+    "pk": 33,
+    "fields": {
+      "name": "Adobe AfterEffects"
+    }
+  }
+]

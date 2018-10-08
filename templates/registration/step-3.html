@@ -1,0 +1,34 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="sign-in-wrap steps">
+    <div class="errors">
+        {% if form.errors %}
+            <p>Passwords do not match.</p>
+        {% endif %}
+    </div>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        <div class="textFile password">
+            <label for="">Select a password for your account</label>
+            {{ form.password }}
+            <div class="lineM"></div>
+        </div>
+
+        <div class="textFile password">
+            <label for="">Confirm password</label>
+            {{ form.confirm_password }}
+            <div class="lineM"></div>
+        </div>
+
+        <div class="textFile txtCenter">
+            <input type="submit" name="" value="Continue">
+        </div>
+
+  </form>
+
+  <p class="go-back"><a href="{% url 'step2'%}">go back</a></p>
+</div>
+{% endblock %}

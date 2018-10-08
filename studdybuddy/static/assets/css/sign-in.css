@@ -240,3 +240,21 @@ input[type=checkbox] + label {
 .checkContainer {
     margin: 40px 0 30px;
 }
+
+.debug {
+  display: none;
+}
+
+.errors {
+    height: 100%;
+}
+
+.errors p {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #f0424e;
+  padding: 0 18px;
+  box-sizing: border-box;
+  font-weight: bold;
+}

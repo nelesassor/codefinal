@@ -1,0 +1,176 @@
+nav {
+    background: #f0424e00;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.22);
+}
+nav .logOut a {
+    opacity: 1;
+}
+.fa-sign-in-alt {
+    padding-left: 10px;
+}
+.b-white {
+    position: relative;
+    z-index: 2; 
+}
+.bannerTop{
+    height: 400px;
+    background: url(../../assets/img/landing-bg-02.jpg) fixed;
+    background-size: cover!important;
+    background-position: top center;
+    position: relative;
+}
+.bannerTop::before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.49);
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+.bannerTop h1{
+    font-size: 45px;
+}
+.bannerTop p {
+    margin: 5px 0 20px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+.bannerTop .center{
+    text-align: center;
+    position: relative;
+    top: 100px;
+    color: #fff;
+}
+.laptop {
+    height: 500px;
+    width: 900px;
+    background-image: url(../../assets/img/laptop-2.png);
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    margin-top: -240px;
+}
+.how {
+    padding-top: 0;
+
+}
+.steps .col{
+    width: 19%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 10px;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 30px;
+}
+.steps .icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+.ico1 {
+    background-image: url(../../assets/img/iconos/01-r.png);
+}
+.ico2 {
+    background-image: url(../../assets/img/iconos/02-r.png);
+}
+.ico3 {
+    background-image: url(../../assets/img/iconos/03-r.png);
+}
+.ico4 {
+    background-image: url(../../assets/img/iconos/04-r.png);
+}
+.ico5 {
+    background-image: url(../../assets/img/iconos/05-r.png);
+}
+
+.how .b-red {
+    margin-top: 0px;
+}
+
+/* .testimonial .col{
+    width: 32%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 10px;
+    vertical-align: top;
+    margin-bottom: 30px;
+} */
+.testimonial .col {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0px 7px 17px rgba(0, 0, 0, 0.08);
+    padding: 25px 20px 20px 0;
+    width: 33%;
+    margin: 0 25px;
+}
+.testimonial .col p {
+    display: inline-block;
+    width: calc(100% - 90px);
+    padding-left: 15px;
+    vertical-align: top;
+    line-height: 140%;
+}
+.testimonial .photo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0px 7px 17px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    margin-left: -20px;
+}
+.pho1 {
+    background-image: url(../../assets/img/testimonials/01.png);
+}
+.pho2 {
+    background-image: url(../../assets/img/testimonials/02.png);
+}
+.pho3 {
+    background-image: url(../../assets/img/testimonials/03.png);
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.testimonial {
+    padding: 60px 0 120px;
+    position: relative;
+    margin-top: 30px;
+}
+.testimonial .row{
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.testimonial .title {
+    padding: 40px 0 60px;
+}
+.testimonial p span{
+    font-size: 12px;
+    display: block;
+    opacity: 0.5;
+}
+.txtBack{
+    color: rgba(0, 0, 0, 0.04);
+    font-size: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+
+}
+.title h1 {
+    font-size: 40px;
+
+}
