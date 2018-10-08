@@ -20,7 +20,7 @@ def index(request):
         skills = currentUser.iWant.all()
         numberOfSkills = len(skills)
         if numberOfSkills == 0:
-            text = "pick a skill you want to learn to find a match"
+            text = "Please complete your profile."
             context = {
                 'numberOfSkills': numberOfSkills,
                 'text': text
@@ -37,7 +37,7 @@ def index(request):
                     matches.exclude(username=alreadyMatched.username)
 
             if len(matches) == 0:
-                text = "currently no matches"
+                text = "Unfortunately we couldn't find a match yet. Please come back again later."
                 numberOfSkills = 0
                 context = {
                     'numberOfSkills': numberOfSkills,
@@ -53,7 +53,7 @@ def index(request):
                         matches.exclude(username=user)
 
         if len(matches) == 0:
-            text = "currently no matches"
+            text = "Unfortunately we couldn't find a match yet. Please come back again later."
             numberOfSkills = 0
             context = {
                 'numberOfSkills': numberOfSkills,

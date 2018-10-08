@@ -392,3 +392,13 @@ footer {
   align-items: center;
   flex-wrap: wrap;
 }
+
+.index-match-text {
+   width: 100%;
+   padding: 18px 24px;
+   font-size: 18px;
+   font-weight: bold;
+   color: #f0424e;
+   text-align: center;
+   box-sizing: border-box;
+}
